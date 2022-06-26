@@ -27,9 +27,15 @@ vim.opt.autoindent = true
 	vim.api.nvim_set_keymap( 'n', '<F4>', ':set mouse="" <CR>', {noremap = true})
 	vim.api.nvim_set_keymap( 'n', '<F5>', ':terminal % <CR>', {noremap = true})
 	vim.api.nvim_set_keymap( 'n', '<F5>', ':! cargo run --quiet <CR>', {noremap = true})
+        vim.api.nvim_set_keymap( 'n', '<F7>', ':! cargo fmt <CR>', {noremap = true})
 	vim.api.nvim_set_keymap( 'n', '<F6>', ':w <CR>', {noremap = true})
 	vim.api.nvim_set_keymap( 'i', '<F6>', '<ESC> :w <CR>', {noremap = true})
         vim.api.nvim_set_keymap( 'n', 'n;', ':GFiles <CR>', {noremap = true}) 	
+        vim.api.nvim_set_keymap( 'n', ';', ':Neotree toggle <CR>', {noremap = true})
+        
+        -- Change buffers
+        vim.api.nvim_set_keymap( 'n', 'b1', ':bprevious <CR>', {noremap = true})
+        vim.api.nvim_set_keymap( 'n', 'b2', ':next <CR>', {noremap = true})
 
 	require('plugins')
 	require'lspconfig'.rust_analyzer.setup({})
@@ -47,7 +53,11 @@ vim.opt.autoindent = true
             filetype_is_not = {},
             modifiable = true
         },
+<<<<<<< HEAD
         write_all_buffers = false,
+=======
+        write_all_buffers = true,
+>>>>>>> 556fee7 (Autosave)
         on_off_commands = true,
         clean_command_line_interval = 0,
         debounce_delay = 135
@@ -155,4 +165,21 @@ vim.opt.autoindent = true
 	    }
 	  }
 	end
+<<<<<<< HEAD
+=======
+        --AutoFormat
+local on_attach = function()
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync() <CR>")
+end
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.completion.spell,
+    },
+})
+--require("lspconfig")["null-ls"].setup({ on_attach = on_attach })
+
+-- vim.lsp.buf.formatting()      --vim.cmd('autocmd BufWritePost * FormatWrite')
+>>>>>>> 556fee7 (Autosave)
 	vim.cmd [[colorscheme tokyonight]]
