@@ -40,5 +40,7 @@ return require('packer').startup(function()
     require"startup".setup()
   end
   }
+  use "Pocco81/AutoSave.nvim"
+  use 'folke/tokyonight.nvim'
 end)
 

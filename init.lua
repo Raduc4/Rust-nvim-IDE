@@ -8,7 +8,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.opt.termguicolors = true
-
+vim.opt.autoindent = true
 	vim.cmd [[autocmd BufWritePost * GitGutter]]
 	vim.cmd [[autocmd BufNewFile,BufRead *.fish set syntax=bash]]
 	vim.cmd [[highlight SignColumn ctermbg=none]]
@@ -34,6 +34,26 @@ vim.opt.termguicolors = true
 	require('plugins')
 	require'lspconfig'.rust_analyzer.setup({})
 	
+        local autosave = require("autosave")
+
+        autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+
 	local cmp = require'cmp'
 	cmp.setup({
 	  mapping = {
@@ -135,4 +155,4 @@ vim.opt.termguicolors = true
 	    }
 	  }
 	end
-	vim.cmd [[colorscheme melange]]
+	vim.cmd [[colorscheme tokyonight]]
