@@ -11,6 +11,7 @@ return require('packer').startup(function()
   }
   use 'airblade/vim-gitgutter'
   use 'rust-lang/rust.vim'
+  use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -268,6 +269,7 @@ return require('packer').startup(function()
     end
 }
   use "Pocco81/AutoSave.nvim"
+  use 'norcalli/nvim-colorizer.lua'
   use 'folke/tokyonight.nvim'
   use "lukas-reineke/lsp-format.nvim"
   use({
