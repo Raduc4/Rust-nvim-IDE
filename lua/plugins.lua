@@ -32,10 +32,6 @@ return require('packer').startup(function()
     require"startup".setup()
   end
   }
-<<<<<<< HEAD
-  use "Pocco81/AutoSave.nvim"
-  use 'folke/tokyonight.nvim'
-=======
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -149,8 +145,8 @@ return require('packer').startup(function()
           },
         },
         window = {
-          position = "left",
-          width = 40,
+          position = "right",
+          width = 30,
           mapping_options = {
             noremap = true,
             nowait = true,
@@ -281,6 +277,5 @@ return require('packer').startup(function()
     end,
     requires = { "nvim-lua/plenary.nvim" },
 })
->>>>>>> 556fee7 (Autosave)
 end)
 
